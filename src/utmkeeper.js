@@ -145,7 +145,11 @@ var utmkeeper = {};
       var linkSearchObj = context.extractUrlParams(link.getAttribute('href'));
 
       // extract it hash block
-      var hrefSplit = link.getAttribute('href').split('#');
+      var hrefRaw = link.getAttribute('href');
+      if (hrefRaw === null || hrefRaw === undefined) 
+          continue
+
+      var hrefSplit = hrefRaw.split('#');
 
       if (hrefSplit.length > 1) {
         hash = hrefSplit[1];
